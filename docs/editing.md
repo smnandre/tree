@@ -1,6 +1,25 @@
 # Editing trees
 
 Tree operations return cloned structures and leave their inputs unchanged.
+Load Composer's autoloader, then start with:
+
+```php
+use Alto\Tree\TreeBuilder;
+use Alto\Tree\Printer\TreePrinter;
+
+$tree = TreeBuilder::fromPaths([
+    'project/src/App.php',
+    'project/README.md',
+], 'project');
+
+echo (new TreePrinter())->print($tree);
+```
+
+```text
+├── src
+│   └── App.php
+└── README.md
+```
 
 ## Extract a subtree
 
@@ -11,6 +30,18 @@ if (null === $src) {
     throw new RuntimeException('Subtree not found.');
 }
 ```
+
+Printing `$src` shows only its descendants:
+
+```php
+echo (new TreePrinter())->print($src);
+```
+
+```text
+└── App.php
+```
+
+The original `$tree` still contains both `src` and `README.md`.
 
 `split()` accepts a path relative to the current node or prefixed with its root
 path. It returns `null` when the path does not exist.

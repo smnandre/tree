@@ -28,3 +28,9 @@ echo (new TreePrinter())->print($tree);
 - [Traversal](traversal.md): collect information or visit nodes with custom behavior.
 - [Editing](editing.md): split, merge, append, flatten, and rebuild trees.
 - [Comparing](comparing.md): find and print added, removed, and unchanged paths.
+
+## Package
+
+- [Changelog](https://github.com/altophp/tree/blob/main/CHANGELOG.md): release history.
+- [Contributing](https://github.com/altophp/tree/blob/main/CONTRIBUTING.md): prepare and validate a change.
+- [Support](https://github.com/altophp/tree/blob/main/SUPPORT.md): ask a question or report a problem.

@@ -1,8 +1,14 @@
 # Getting started
 
-Build a tree from known paths, then print its hierarchy.
+Build a tree from known paths, then print its hierarchy. After
+[installation](installation.md), save this script as `tree.php` beside `vendor/`.
+No files or directories need to exist for these explicit paths.
 
 ```php
+<?php
+
+require __DIR__.'/vendor/autoload.php';
+
 use Alto\Tree\Printer\TreePrinter;
 use Alto\Tree\TreeBuilder;
 
@@ -15,7 +21,7 @@ $tree = TreeBuilder::fromPaths([
 echo (new TreePrinter())->print($tree);
 ```
 
-The printer returns:
+Run `php tree.php`. The printer omits the root label and outputs:
 
 ```text
 ├── src

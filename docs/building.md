@@ -30,6 +30,10 @@ $tree = TreeBuilder::fromFilesystem(__DIR__.'/project', [
 ]);
 ```
 
+Create `project/` first and ensure the PHP process can read it. This provider
+reads the filesystem; it does not create missing paths. Invalid directory paths
+raise `InvalidArgumentException`. Check filesystem permissions if traversal fails.
+
 Metadata contains file size, modification time, permissions, readability, and
 writability. Exclusion matches both substrings and `fnmatch()` patterns.
 
@@ -43,6 +47,8 @@ $betweenRefs = TreeBuilder::fromGit(__DIR__.'/project', ['diff' => 'main..featur
 $atCommit = TreeBuilder::fromGit(__DIR__.'/project', ['commit' => 'v1.0.0']);
 ```
 
+Install Git and initialize or clone the example repository first. Replace the
+example branch and tag names with references that exist in that repository.
 The provider executes the local `git` command. Use it only with trusted local
 repository paths and references. A non-directory or non-repository path raises
 `InvalidArgumentException`; a failed Git command raises `RuntimeException`.

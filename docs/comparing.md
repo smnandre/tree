@@ -28,6 +28,17 @@ not included in the comparison.
 Inspect `getAdded()`, `getRemoved()`, and `getUnchanged()` for maps keyed by
 path. Count methods and `hasChanges()` provide quick decisions.
 
+The inputs have these descendants (the root label is omitted):
+
+| Before | After |
+| --- | --- |
+| `src/App.php` | `src/App.php` |
+| `README.md` | `tests/AppTest.php` |
+
+`getAdded()` contains `project/tests` and `project/tests/AppTest.php`;
+`getRemoved()` contains `project/README.md`. The common `src` directory and
+`src/App.php` remain unchanged.
+
 ## Render the result
 
 ```php
